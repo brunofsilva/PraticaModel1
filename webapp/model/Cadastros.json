@@ -1,0 +1,16 @@
+{   
+    "data": [
+        {
+            "Nome": "Etevaldo",
+            "DtNascimento": "08/11/2002",
+            "Sexo": "M",
+            "Altura": "2.05"
+        },
+        {
+            "Nome": "Virgilinea",
+            "DtNascimento": "08/11/1980",
+            "Sexo": "F",
+            "Altura": "1.48"
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+<c:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+    xmlns:form="sap.ui.layout.form">
+
+    <Dialog id="idDialogNewReg">
+        <form:SimpleForm editable="true" layout="ResponsiveGridLayout">
+            <form:content>
+                <c:Title  text="Novo Cadastro" />
+
+                <Label  text="Name" />
+                <TextArea value="" width="100%" />
+
+                <Label text="Dt Nascimento" />
+                <DatePicker id="idDatePicker"/>
+
+                <Label text="Sexo" />
+                <SegmentedButton id="idSegmentedButton"/>
+
+                <Label text="Altura" />
+                <TextArea value="" width="100%" />
+            </form:content>
+        </form:SimpleForm>
+
+        
+            <beginButton>       
+            <Button text="{i18n>lbSave}"   icon="sap-icon://save" type="Success" press="onSalveButton" />
+            </beginButton>
+            <endButton>
+            <Button text="{i18n>lbCancel}" icon="sap-icon://cancel" type="Reject" press="onCancelButton" />
+        </endButton>
+
+
+    </Dialog>
+</c:FragmentDefinition>
