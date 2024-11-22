@@ -3,11 +3,14 @@ sap.ui.define([
     "sap/ui/core/mvc/Controller",
     "sap/ui/model/json/JSONModel",
     "sap/ui/core/Fragment",
+    "mentoria/ka/fiori/zpraticamodel1bfs/util/Format",
 ],
-    function (Controller, JSONModel, Fragment) {
+    function (Controller, JSONModel, Fragment, Format) {
         "use strict";
 
         return Controller.extend("mentoria.ka.fiori.zpraticamodel1bfs.controller.View1", {
+
+            Format: Format,
 
             onInit: function () {
 
