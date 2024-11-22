@@ -7,23 +7,16 @@ function (Controller, JSONModel, Fragment) {
     "use strict";
 
     return Controller.extend("mentoria.ka.fiori.zpraticamodel1bfs.controller.View1", {
+
         onInit: function () {
-
-            // var oModelJson = new JSONModel({
-            //     dataTable: [],
-            //     dataForm: {
-            //         nome, dtNasc, sexo, altura
-            //     }
-            // })
             
-            var oModelJson2 = new JSONModel();
-            oModelJson2.loadData("/model/Cadastros.json");
-            this.getView().setModel(oModelJson2, "model2");
-
+            var oCadastros = new JSONModel();
+            oCadastros.loadData("/model/Cadastros.json");
+            this.getView().setModel(oCadastros);
             
         },
 
-        onNovoPress: function () {
+        onNovoPress: function (oEvent) {
 
             var oView = this.getView(),
                 oDialogNewReg = this.getView().byId("idDialogNewReg");
@@ -35,6 +28,8 @@ function (Controller, JSONModel, Fragment) {
                     controller: this
                 }).then(function (oDialog) {
                     oView.addDependent(oDialog);
+
+                    oDialog.bindElement({path: "/dataForm"});
                     oDialog.open();
                 })
             } else {
@@ -47,7 +42,31 @@ function (Controller, JSONModel, Fragment) {
             this.getView().byId("idDialogNewReg").close();
         },
 
-        onSalveButton: function () {
+        onSalveButton: function (oEvent) {
+            let oModelForm = this.getView().getModel().getProperty("/dataForm");
+ 
+            let oModelTable = this.getView().getModel().getProperty("/dataTable");
+ 
+ 
+            let sSexo = this.getView().byId("selectedSexo").getSelectedKey();
+ 
+            oModelTable.push(oModelForm);
+ 
+            oEvent.getSource().getParent().destroy();
+ 
+            this.getView().getModel().setProperty("/dataTable", oModelTable);
+ 
+ 
+            let oModelFormNew = Object.create(oModelForm);
+ 
+            for (const property in oModelFormNew) {
+                oModelFormNew[property] = "";
+            };
+ 
+            this.getView().getModel().setProperty("/dataForm", oModelFormNew);
+
+            this.byId("idPanel").getBinding("items").refresh();
+
             this.getView().byId("idDialogNewReg").close();
         },
 

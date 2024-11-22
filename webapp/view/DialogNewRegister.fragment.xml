@@ -8,17 +8,32 @@
             <form:content>
                 <c:Title  text="Novo Cadastro" />
 
-                <Label  text="Name" />
-                <TextArea value="" width="100%" />
+                <Label text="{i18n>lbName}" />
+                <Input id="inputNome" required="true" value="{nome}" />
 
-                <Label text="Dt Nascimento" />
-                <DatePicker id="idDatePicker"/>
-
-                <Label text="Sexo" />
-                <SegmentedButton id="idSegmentedButton"/>
-
-                <Label text="Altura" />
-                <TextArea value="" width="100%" />
+                <Label text="{i18n>lbDateBirth}" />
+                <DatePicker id="inputDt" required="true" value="{path: 'dtNascimento', type: 'sap.ui.model.type.Date'}" />
+ 
+                <Label text="{i18n>lbSex}" />
+                <SegmentedButton id="selectedSexo" selectedKey="{sexo}" >
+                    <items>
+                        <SegmentedButtonItem text="{i18n>lbFemaleGender}" key="{i18n>lbFemaleGender}"/>
+                        <SegmentedButtonItem text="{i18n>lbMaleGender}" key="{i18n>lbMaleGender}" />
+                    </items>
+                </SegmentedButton>
+ 
+                <Label text="{i18n>lbHeight}" />
+                <Input id="inputAltura" required="true"
+                                        value="{path: 'altura',
+                                                type: 'sap.ui.model.type.Float',
+                                                formatOptions: {
+                                                    maxFractionDigits : 2,
+                                                    minFractionDigits: 2,
+                                                    groupingSeparator: '.',
+                                                    decimalSeparator: ',',
+                                                    groupingEnabled: true
+                                                }
+                                            }"/>
             </form:content>
         </form:SimpleForm>
 
