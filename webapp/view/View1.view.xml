@@ -15,10 +15,10 @@
                 <List items="{path: '/dataTable'}" backgroundDesign="Solid">
                     <items>
                         <ObjectListItem title="{i18n>lbName}: {nome}" >
-                            <ObjectAttribute text="{i18n>lbDateBirth}: {dtNascimento}" />
+                            <ObjectAttribute text="{i18n>lbDateBirth}: {path: 'dtNascimento', type: 'sap.ui.model.odata.type.Date'}" />
                             <ObjectAttribute text="{i18n>lbHeight}: {altura}" />
                             <ObjectAttribute text="{i18n>lbSex}: {sexo} " />
-                        </ObjectListItem>
+                        </ObjectListItem>                        
                     </items>
                 </List>
             </Panel>
